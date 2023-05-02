@@ -29,10 +29,10 @@ const Table = () => {
       <h2 className='my-5 mb-10 text-3xl'>{locatinon.name}</h2>
       <div className='w-full grid lg:grid-rows-1 whitespace-nowrap overflow-x-auto lg:gap-3 gap-1 grid-flow-col'>
         {
-          dailyWeather !== [] && dailyWeather.forecast.forecastday.map((data, i) => {
+          dailyWeather  && dailyWeather.forecast.forecastday.map((data, i) => {
             return (
               <div key={i} className='flex flex-col justify-center items-center'>
-                <div className={`w-full ${i + 1 === dailyWeather.current.is_day ? " shadow-lg bg-blue-200" : " "} p-2 rounded-lg border shadow-md shadow-blue-200`}>
+                <div className={`w-full ${data.date === formattedDate ? " shadow-lg bg-blue-200" : " "} p-2 rounded-lg border shadow-md shadow-blue-200`}>
                   <span className='w-full block font-semibold'>{days[new Date(data.date).getDay()]}</span>
                   <span className='w-full block text-xs mb-3'>{data.date}</span>
                   <div className='h-40 w-32 relative bg-blue-300 rounded-lg '>
